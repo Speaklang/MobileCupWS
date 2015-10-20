@@ -26,8 +26,8 @@ public class UsuarioDAOImpl
 	@Override
 	public List<UsuarioTO> buscarPorEmail(String email) {
 		TypedQuery<UsuarioTO> query = em.createQuery(
-				"from UsuarioTO u where u.email like :mail",UsuarioTO.class);
-			query.setParameter("mail","%" + email + "%");
+				"from UsuarioTO u where u.email =:mail",UsuarioTO.class);
+			query.setParameter("mail", email);
 			return query.getResultList();
 	}
 
